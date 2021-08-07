@@ -1,14 +1,8 @@
-![](/assets/svelte_cap.png)
-# Svelte + Capacitor (w/ live reload) Template
+![](/assets/svelte_ionic_cap.png)
+# Svelte + Ionic + Capacitor (w/ live reload) Template
 
-This is a project template for [Svelte](https://svelte.dev) + [CapacitorJS](https://capacitorjs.com) apps with live reload, granting the ability to quickly build production ready applications for iOS and Android at near-native performance using JavaScript (Svelte). 
+This is a project template for [Svelte](https://svelte.dev) + [Ionic](https://ionicframework.com/) + [CapacitorJS](https://capacitorjs.com) apps with live reload, granting the ability to quickly build production ready applications for iOS and Android at near-native performance using JavaScript (Svelte). 
 ## Changelog
-
-**v2.0.0** - The new version is here, this comes with some better defaults, vite as the build manager, built in routing library, TypeScript, and aliases. While this could be seen as an 'incremental' update I think this works as a v2.0.0 as it was a complete rewrite.
-  - **Build Tool**: Changed the build tool to Vite from Rollup, this is the new and recommended way to develop Svelte applications, it's faster, cleaner, and easier to handle. 
-  - **Routing**: Built in routing library, using Routify, I spent a considerable time debating on including one - I decided I would. This is mainly due to the amount of messages and emails(!) I received asking how to implement one, Routify is by far my favorite and so here it is. This is very easily removed and replaced with your preferred. 
-  - **Typescript**: I personally do not use typescript as much as I should, but others do. I have included some TS configs for you. 
-  - **@components, @store, and @utils**: If you have ever taken a look at sveltekit they have these nifty aliases throughout their code so you don't have to write '../../../components' or what have you. Now you can just do '@components/file' and Vite will readily load them from the components folder, this makes it easy to create changes as you don't need to change the file location on every move or copy. Please check out the [Vite Aliases](https://github.com/Subwaytime/vite-aliases) package for more questions.
 
 ## Setup
 
@@ -19,7 +13,7 @@ This is a project template for [Svelte](https://svelte.dev) + [CapacitorJS](http
 Install the dependencies...
 
 ```bash
-git clone "https://github.com/drannex42/svelte-capacitor.git"
+git clone "https://github.com/Zettexe/svelte-ionic-starter.git"
 cd svelte-capacitor
 npm install
 ```
@@ -93,7 +87,7 @@ Since this is a Svelte application you will be able to use any routing manager t
  ### Accessing Device APIs
  CapacitorJS is/was based on Cordova and has *complete* backwards compatibility with cordova plugins. To find plugins that allow you to access the device api's easier, attempt to find cordova or capacitor plugins. You will need to view their (capacitorjs) docs to learn how to properly accesss those.
 
- ### Why didn't the second version use Sveltekit? 
+ ### Why not use Sveltekit? 
 
  This is ready for production (this template is being used in several production applications already!) and Sveltekit is not, I also believe this is much more easily extensible and doesn't lock you into the Sveltekit way of doing things (no opinionated API's) while adding in defaults for Capacitor.js for application development on Android and iOS. You likely don't need to learn a new paradigm, just use what you know with Javascript and Svelte to build cross platform applications at near native performance.
 
@@ -105,6 +99,3 @@ Submit a PR! I would love to have more people working on this, the advantages of
 
 I would love to keep a collection of all the projects using this!
 
------
-
-This template was created by [t. Macleod Sawyer](https://macleodsawyer.com/) of [DNX Robotics](https://dnxrobotics.com) - [Source can be found here](https://github.com/drannex42/svelte-capacitor)
