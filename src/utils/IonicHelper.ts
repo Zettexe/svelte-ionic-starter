@@ -1,82 +1,86 @@
 import {
-    MenuI,
-    loadingController,
-    toastController,
-    alertController,
-    pickerController,
-    actionSheetController,
-    modalController,
-    popoverController
+  MenuI,
+  loadingController,
+  toastController,
+  alertController,
+  pickerController,
+  actionSheetController,
+  modalController,
+  popoverController,
+  ComponentProps,
+  LoadingOptions,
+  ToastOptions,
+  AlertOptions,
+  PickerOptions,
+  ActionSheetOptions,
 } from "@ionic/core";
+import type { SvelteComponent, SvelteComponentTyped } from "svelte/internal";
 
 export const getIonicNav = () => {
-    return document.querySelector("ion-nav");
-}
-
-export const getIonicMenu = (menuId):MenuI => {
-    const query = "ion-menu[menu-id='" + menuId + "']";
-    return document.querySelector(query) as unknown as MenuI;
-}
-
-export const IonicShowModal = (selector, componentProps):any => {
-    return modalController
-        .create({
-            component: selector,
-            componentProps
-        })
-        .then(modal => {
-            modal.present();
-            return modal.onWillDismiss()
-        });
-}
-
-
-export const IonicShowPopover = (event, selector, component, componentProps):any => {
-    return popoverController
-        .create({
-            component: selector,
-            event,
-            componentProps
-        })
-        .then(popover => {
-            popover.present();
-            return popover.onWillDismiss();
-        });
+  return document.querySelector("ion-nav");
 };
 
-export const IonicShowLoading = (options) => {
-    return loadingController
-        .create(options)
-        .then(ionicitem => {
-            ionicitem.present()
-            return ionicitem;
-        })
+export const getIonicMenu = (menuId: string): MenuI => {
+  return document.querySelector(
+    `ion-menu[menu-id='${menuId}']`
+  ) as unknown as MenuI;
+};
+
+//Keep component variable to force component import at function call
+export const IonicShowModal = async (
+  selector: string,
+  component: new (...args: any) => SvelteComponent,
+  componentProps: ComponentProps
+) => {
+  const modal = await modalController.create({
+    component: selector,
+    componentProps,
+  });
+  modal.present();
+  return await modal.onWillDismiss();
 }
 
-export const IonicShowToast = (options) => {
-    return toastController.create(options).then(toast => {
-        toast.present();
-        return toast;
-    })
-}
+//Keep component variable to force component import at function call
+export const IonicShowPopover = async (
+  selector: string,
+  component: new (...args: any) => SvelteComponent,
+  componentProps: ComponentProps
+) => {
+  const popover = await popoverController.create({
+    component: selector,
+    event,
+    componentProps,
+  });
+  popover.present();
+  return await popover.onWillDismiss();
+};
 
-export const IonicShowAlert = (options) => {
-    return alertController.create(options).then(alert => {
-        alert.present();
-        return alert;
-    })
-}
+export const IonicShowLoading = async (options: LoadingOptions) => {
+  const ionicitem = await loadingController.create(options);
+  ionicitem.present();
+  return ionicitem;
+};
 
-export const IonicShowPicker = (options) => {
-    return pickerController.create(options).then(picker => {
-        picker.present();
-        return picker;
-    })
-}
+export const IonicShowToast = async (options: ToastOptions) => {
+  const toast = await toastController.create(options);
+  toast.present();
+  return toast;
+};
 
-export const IonicShowActionSheet = (options) => {
-    return actionSheetController.create(options).then(actionSheet => {
-        actionSheet.present();
-        return actionSheet;
-    })
-}
+export const IonicShowAlert = async (options: AlertOptions) => {
+  const alert = await alertController.create(options);
+  alert.present();
+  return alert;
+};
+
+export const IonicShowPicker = async (options: PickerOptions) => {
+  const picker = await pickerController.create(options);
+  picker.present();
+  return picker;
+};
+
+export const IonicShowActionSheet = async (options: ActionSheetOptions) => {
+  const actionSheet = await actionSheetController.create(options);
+  actionSheet.present();
+  return actionSheet;
+};
