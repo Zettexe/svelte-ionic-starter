@@ -1,18 +1,34 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { getAliases } from 'vite-aliases'
+// @ts-nocheck
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { getAliases } from "vite-aliases";
 
 const aliases = getAliases();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()],
-  publicDir: './assets/',
+  plugins: [
+    svelte({
+      // web components
+      include: /\.wc\.svelte$/,
+      compilerOptions: {
+        customElement: true,
+      },
+    }),
+    svelte({
+      // normal Svelte classes
+      exclude: /\.wc\.svelte$/,
+      compilerOptions: {
+        customElement: false,
+      },
+    }),
+  ],
+  publicDir: "./assets/",
   build: {
-    outDir: './public/'
+    outDir: "./public/",
   },
   resolve: {
-    alias: aliases
+    alias: aliases,
   },
   optimizeDeps: { exclude: ["@roxi/routify", "@urql/svelte"] },
-})
+});

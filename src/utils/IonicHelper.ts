@@ -1,4 +1,3 @@
-import { register } from "svelte-custom-elements";
 import {
     MenuI,
     loadingController,
@@ -10,24 +9,6 @@ import {
     popoverController
 } from "@ionic/core";
 
-//
-// Private functions 
-//
-// see if webcomponent is already created
-const isRegistered = function(name) {
-    return document.createElement(name).constructor !== HTMLElement;
-};
-
-//
-// API methods
-//
-// register webcomponent if not yet done
-export const registerWebComponentOnce = (selector, component) => {
-    if (!isRegistered(selector)) {
-        register(selector, component, []);
-    }
-};
-
 export const getIonicNav = () => {
     return document.querySelector("ion-nav");
 }
@@ -37,8 +18,7 @@ export const getIonicMenu = (menuId):MenuI => {
     return document.querySelector(query) as unknown as MenuI;
 }
 
-export const IonicShowModal = (selector, component, componentProps):any => {
-    registerWebComponentOnce(selector, component);
+export const IonicShowModal = (selector, componentProps):any => {
     return modalController
         .create({
             component: selector,
@@ -52,7 +32,6 @@ export const IonicShowModal = (selector, component, componentProps):any => {
 
 
 export const IonicShowPopover = (event, selector, component, componentProps):any => {
-    registerWebComponentOnce(selector, component);
     return popoverController
         .create({
             component: selector,

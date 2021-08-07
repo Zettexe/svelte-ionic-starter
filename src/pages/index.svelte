@@ -1,9 +1,8 @@
 <script>
   import { IonicShowModal } from "@utils/IonicHelper";
-  import Modal from "@components/Modal.svelte";
 
   const showModal = () => {
-    IonicShowModal("modal-extra", Modal, {
+    IonicShowModal("modal-extra", {
       firstName: "Douglas",
       lastName: "Adams",
       middleInitial: "N",
