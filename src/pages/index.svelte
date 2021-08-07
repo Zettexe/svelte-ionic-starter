@@ -1,20 +1,27 @@
 <script>
-    var name = "svelte"
-    var image = "assets/svelte_cap.png"
+  import { IonicShowModal } from "@utils/IonicHelper";
+  import Modal from "@components/Modal.svelte";
+
+  const showModal = () => {
+    IonicShowModal("modal-extra", Modal, {
+      firstName: "Douglas",
+      lastName: "Adams",
+      middleInitial: "N",
+    }).then(console.log);
+  };
 </script>
 
 <div class="main">
-    <img src={image}/>
-    <h1>Welcome to {name}!</h1>
+  <ion-button on:click={showModal}>Open</ion-button>
 </div>
 
 <style>
-    .main {
-        text-align: center;
-        margin: 50px auto;
-    }
+  .main {
+    text-align: center;
+    margin: 50px auto;
+  }
 
-    img {
-        max-width: 100%;
-    }
+  img {
+    max-width: 100%;
+  }
 </style>
