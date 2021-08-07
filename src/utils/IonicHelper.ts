@@ -14,7 +14,7 @@ import {
   PickerOptions,
   ActionSheetOptions,
 } from "@ionic/core";
-import type { SvelteComponent, SvelteComponentTyped } from "svelte/internal";
+import type { SvelteComponent } from "svelte/internal";
 
 export const getIonicNav = () => {
   return document.querySelector("ion-nav");

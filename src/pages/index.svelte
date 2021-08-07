@@ -20,8 +20,4 @@
     text-align: center;
     margin: 50px auto;
   }
-
-  img {
-    max-width: 100%;
-  }
 </style>
