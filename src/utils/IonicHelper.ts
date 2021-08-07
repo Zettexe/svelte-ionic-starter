@@ -26,7 +26,7 @@ export const getIonicMenu = (menuId: string): MenuI => {
   ) as unknown as MenuI;
 };
 
-//Keep component variable to force component import at function call
+//Unused component variable to force component import at function call
 export const IonicShowModal = async (
   selector: string,
   component: new (...args: any) => SvelteComponent,
@@ -40,7 +40,7 @@ export const IonicShowModal = async (
   return await modal.onWillDismiss();
 };
 
-//Keep component variable to force component import at function call
+//Unused component variable to force component import at function call
 export const IonicShowPopover = async (
   selector: string,
   component: new (...args: any) => SvelteComponent,
