@@ -12,7 +12,8 @@
 </script>
 
 <div class="main">
-  <ion-button on:click={showModal}>Open</ion-button>
+  <h1>Welcome to Svelte with Ionic + Capacitor!</h1>
+  <ion-button on:click={showModal}>Open Modal</ion-button>
 </div>
 
 <style>

@@ -1,3 +1,4 @@
+import type { SvelteComponent } from "svelte/internal";
 import {
   MenuI,
   loadingController,
@@ -14,7 +15,6 @@ import {
   PickerOptions,
   ActionSheetOptions,
 } from "@ionic/core";
-import type { SvelteComponent } from "svelte/internal";
 
 export const getIonicNav = () => {
   return document.querySelector("ion-nav");
@@ -38,7 +38,7 @@ export const IonicShowModal = async (
   });
   modal.present();
   return await modal.onWillDismiss();
-}
+};
 
 //Keep component variable to force component import at function call
 export const IonicShowPopover = async (
