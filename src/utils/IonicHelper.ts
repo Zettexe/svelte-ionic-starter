@@ -1,6 +1,5 @@
 import type { SvelteComponent } from "svelte/internal";
 import {
-  MenuI,
   loadingController,
   toastController,
   alertController,
@@ -8,6 +7,9 @@ import {
   actionSheetController,
   modalController,
   popoverController,
+} from "@ionic/core";
+import type {
+  MenuI,
   ComponentProps,
   LoadingOptions,
   ToastOptions,
