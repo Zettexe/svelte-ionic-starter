@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { getAliases } from "vite-aliases";
+import postcss from './postcss.config.js';
 
 const aliases = getAliases();
 
@@ -25,6 +26,9 @@ export default defineConfig({
       },
     }),
   ],
+  css:{
+    postcss
+  },
   publicDir: "./assets/",
   build: {
     outDir: "./public/",
