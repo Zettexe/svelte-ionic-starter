@@ -12,7 +12,7 @@
 </script>
 
 <div class="main">
-  <h1>Welcome to Svelte with Ionic + Capacitor!</h1>
+  <h1 class="font-bold">Welcome to Svelte with Ionic + Capacitor!</h1>
   <ion-button on:click={showModal}>Open Modal</ion-button>
 </div>
 
